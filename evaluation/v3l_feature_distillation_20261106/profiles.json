@@ -1,0 +1,143 @@
+{
+  "convention": "Executed deployed Conv2d MACs; excludes fixed Haar, interpolation, bias, activation and fusion setup; not training MACs or peak memory.",
+  "baseline": {
+    "widths": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "canvas_hw": [
+      256,
+      256
+    ],
+    "packed_shape": [
+      1,
+      6,
+      128,
+      128
+    ],
+    "convolution_macs": 34258944,
+    "training_parameters": 89184,
+    "deployed_parameters": 22936,
+    "stage_output_bytes": 983040,
+    "fused_blocks": {
+      "ECB": 6,
+      "ECB2": 3
+    }
+  },
+  "teachers": {
+    "16": {
+      "widths": [
+        20,
+        40,
+        80,
+        160
+      ],
+      "canvas_hw": [
+        256,
+        256
+      ],
+      "packed_shape": [
+        1,
+        6,
+        128,
+        128
+      ],
+      "convolution_macs": 566870016,
+      "training_parameters": 2091328,
+      "deployed_parameters": 546296,
+      "stage_output_bytes": 4915200,
+      "fused_blocks": {
+        "ECB": 6,
+        "ECB2": 3
+      },
+      "actual_ratio": 16.546628407460545,
+      "relative_target_error": 0.03416427546628409
+    },
+    "32": {
+      "widths": [
+        28,
+        56,
+        112,
+        224
+      ],
+      "canvas_hw": [
+        256,
+        256
+      ],
+      "packed_shape": [
+        1,
+        6,
+        128,
+        128
+      ],
+      "convolution_macs": 1083260928,
+      "training_parameters": 4081776,
+      "deployed_parameters": 1067752,
+      "stage_output_bytes": 6881280,
+      "fused_blocks": {
+        "ECB": 6,
+        "ECB2": 3
+      },
+      "actual_ratio": 31.619799139167863,
+      "relative_target_error": -0.011881276901004267
+    },
+    "64": {
+      "widths": [
+        40,
+        80,
+        160,
+        320
+      ],
+      "canvas_hw": [
+        256,
+        256
+      ],
+      "packed_shape": [
+        1,
+        6,
+        128,
+        128
+      ],
+      "convolution_macs": 2170454016,
+      "training_parameters": 8304168,
+      "deployed_parameters": 2174656,
+      "stage_output_bytes": 9830400,
+      "fused_blocks": {
+        "ECB": 6,
+        "ECB2": 3
+      },
+      "actual_ratio": 63.35437589670014,
+      "relative_target_error": -0.010087876614060298
+    },
+    "128": {
+      "widths": [
+        57,
+        114,
+        228,
+        456
+      ],
+      "canvas_hw": [
+        256,
+        256
+      ],
+      "packed_shape": [
+        1,
+        6,
+        128,
+        128
+      ],
+      "convolution_macs": 4352790528,
+      "training_parameters": 16826319,
+      "deployed_parameters": 4409799,
+      "stage_output_bytes": 14008320,
+      "fused_blocks": {
+        "ECB": 6,
+        "ECB2": 3
+      },
+      "actual_ratio": 127.05559540889527,
+      "relative_target_error": -0.00737816086800569
+    }
+  }
+}

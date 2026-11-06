@@ -1,0 +1,20 @@
+{
+  "torch": "2.12.0",
+  "torchvision": "0.27.0",
+  "numpy": "2.4.5",
+  "opencv-python": "4.13.0.92",
+  "Pillow": "11.3.0",
+  "PyYAML": "6.0.2",
+  "scipy": "1.17.1",
+  "scikit-image": "not installed locally",
+  "lmdb": "not installed locally",
+  "addict": "2.4.0",
+  "future": "not installed locally",
+  "requests": "2.32.3",
+  "tqdm": "4.67.1",
+  "tensorboard": "not installed locally",
+  "yapf": "not installed locally",
+  "kornia": "0.8.3",
+  "editdistance": "0.8.1",
+  "pytest": "8.4.1"
+}

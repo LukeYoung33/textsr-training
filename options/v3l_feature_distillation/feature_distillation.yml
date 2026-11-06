@@ -1,0 +1,7 @@
+# Engine settings only; this is not a standalone BasicSR training config.
+# A trained, strict-loaded teacher and the selected base loss are required.
+feature_weight: 1.0
+warmup_iters: 5000
+stage_weights: [1, 1, 1, 1, 1, 1, 1, 1]
+optimizer_options:
+  lr: 0.0001

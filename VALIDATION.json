@@ -1,0 +1,72 @@
+{
+  "checked_at": "2026-11-06T15:57:28",
+  "syntax_build_exit": 0,
+  "project_smoke_exit": 0,
+  "clean_copy_tests": {
+    "exit_code": 0,
+    "passed": 12,
+    "seconds": 51.85
+  },
+  "independent_source_imports": true,
+  "supervised_templates": 25,
+  "kd_components": 8,
+  "total_stages": 33,
+  "config_schema": "passed",
+  "payload_exclusions": "passed",
+  "synthetic_config_smoke": {
+    "passed": true,
+    "records": [
+      {
+        "model": "V3M",
+        "loss": "L1",
+        "total": 0.10666672885417938,
+        "base": 0.10666672885417938,
+        "aux": 0.0
+      },
+      {
+        "model": "V3M",
+        "loss": "L1_R1_ori",
+        "total": 0.2191682606935501,
+        "base": 0.10666672885417938,
+        "aux": 0.11250152811408043
+      },
+      {
+        "model": "V3L16",
+        "loss": "L1",
+        "total": 0.10666672885417938,
+        "base": 0.10666672885417938,
+        "aux": 0.0
+      }
+    ],
+    "module_origins": {
+      "basicsr.train": "basicsr\\train.py",
+      "realesrgan.archs.basic_text_line_r4_student_y4uv_v3m_arch": "realesrgan\\archs\\basic_text_line_r4_student_y4uv_v3m_arch.py",
+      "realesrgan.archs.basic_text_line_r4_teacher_y4uv_v3l_arch": "realesrgan\\archs\\basic_text_line_r4_teacher_y4uv_v3l_arch.py",
+      "realesrgan.models.v3_feature_distillation": "realesrgan\\models\\v3_feature_distillation.py"
+    },
+    "teacher_configs_all_four_constructed": true,
+    "initialization_all_five_strict_loaded": true,
+    "yaml_path_escaping": true,
+    "real_data_used": false,
+    "cuda_validated": false
+  },
+  "real_dataset_included": false,
+  "learned_weights_included": false,
+  "cuda_validated": false,
+  "full_kd_data_pipeline_integrated": false,
+  "training_launched": false,
+  "comment_review": {
+    "files": [
+      "tools/package_sg_wh_training_kit.py",
+      "tools/sg_wh_training_runtime.py"
+    ],
+    "decision": "review_not_now"
+  },
+  "chinese_text_validation": {
+    "checked_at": "2026-11-06T16:06:29",
+    "utf8": true,
+    "literal_question_marks": 0,
+    "canonical_source": "docs/training/sg_wh_training_kit_README_CN.md",
+    "canonical_source_and_readme_identical": true
+  }
+}

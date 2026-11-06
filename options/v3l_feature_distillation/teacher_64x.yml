@@ -1,0 +1,11 @@
+# Architecture fragment; merge with the approved base training recipe.
+# No data paths or initialization checkpoints are implied.
+network_g:
+  type: BasicTextLineR4TeacherY4UVV3L
+  compute_ratio: 64
+  canvas_hw: [256, 256]
+  haar_switch: true
+  learnable_haar: false
+  with_idt: false
+  act_type: prelu
+  with_proj: true

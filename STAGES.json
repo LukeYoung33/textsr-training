@@ -1,0 +1,200 @@
+[
+  {
+    "id": "SG_PRE_V3M_L1",
+    "kind": "supervised_template",
+    "config": "configs/SG_PRE/V3M_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_FT_V3M_L1",
+    "kind": "supervised_template",
+    "config": "configs/SG_FT/V3M_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_FT_V3M_L1_R1_ori",
+    "kind": "supervised_template",
+    "config": "configs/SG_FT/V3M_L1_R1_ori.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_SCRATCH_V3M_L1",
+    "kind": "supervised_template",
+    "config": "configs/WH_SCRATCH/V3M_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_SCRATCH_V3M_L1_R1_ori",
+    "kind": "supervised_template",
+    "config": "configs/WH_SCRATCH/V3M_L1_R1_ori.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_PRE_V3L16_L1",
+    "kind": "supervised_template",
+    "config": "configs/SG_PRE/V3L16_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_FT_V3L16_L1",
+    "kind": "supervised_template",
+    "config": "configs/SG_FT/V3L16_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_FT_V3L16_L1_R1_ori",
+    "kind": "supervised_template",
+    "config": "configs/SG_FT/V3L16_L1_R1_ori.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_SCRATCH_V3L16_L1",
+    "kind": "supervised_template",
+    "config": "configs/WH_SCRATCH/V3L16_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_SCRATCH_V3L16_L1_R1_ori",
+    "kind": "supervised_template",
+    "config": "configs/WH_SCRATCH/V3L16_L1_R1_ori.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_PRE_V3L32_L1",
+    "kind": "supervised_template",
+    "config": "configs/SG_PRE/V3L32_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_FT_V3L32_L1",
+    "kind": "supervised_template",
+    "config": "configs/SG_FT/V3L32_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_FT_V3L32_L1_R1_ori",
+    "kind": "supervised_template",
+    "config": "configs/SG_FT/V3L32_L1_R1_ori.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_SCRATCH_V3L32_L1",
+    "kind": "supervised_template",
+    "config": "configs/WH_SCRATCH/V3L32_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_SCRATCH_V3L32_L1_R1_ori",
+    "kind": "supervised_template",
+    "config": "configs/WH_SCRATCH/V3L32_L1_R1_ori.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_PRE_V3L64_L1",
+    "kind": "supervised_template",
+    "config": "configs/SG_PRE/V3L64_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_FT_V3L64_L1",
+    "kind": "supervised_template",
+    "config": "configs/SG_FT/V3L64_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_FT_V3L64_L1_R1_ori",
+    "kind": "supervised_template",
+    "config": "configs/SG_FT/V3L64_L1_R1_ori.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_SCRATCH_V3L64_L1",
+    "kind": "supervised_template",
+    "config": "configs/WH_SCRATCH/V3L64_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_SCRATCH_V3L64_L1_R1_ori",
+    "kind": "supervised_template",
+    "config": "configs/WH_SCRATCH/V3L64_L1_R1_ori.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_PRE_V3L128_L1",
+    "kind": "supervised_template",
+    "config": "configs/SG_PRE/V3L128_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_FT_V3L128_L1",
+    "kind": "supervised_template",
+    "config": "configs/SG_FT/V3L128_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "SG_FT_V3L128_L1_R1_ori",
+    "kind": "supervised_template",
+    "config": "configs/SG_FT/V3L128_L1_R1_ori.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_SCRATCH_V3L128_L1",
+    "kind": "supervised_template",
+    "config": "configs/WH_SCRATCH/V3L128_L1.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_SCRATCH_V3L128_L1_R1_ori",
+    "kind": "supervised_template",
+    "config": "configs/WH_SCRATCH/V3L128_L1_R1_ori.template.yml",
+    "ready": "needs_path_binding_and_real_cuda_validation"
+  },
+  {
+    "id": "WH_KD_V3L16_L1",
+    "kind": "feature_distillation_component",
+    "config": "configs/WH_KD/V3M_from_V3L16_L1.component.yml",
+    "ready": false
+  },
+  {
+    "id": "WH_KD_V3L16_L1_R1_ori",
+    "kind": "feature_distillation_component",
+    "config": "configs/WH_KD/V3M_from_V3L16_L1_R1_ori.component.yml",
+    "ready": false
+  },
+  {
+    "id": "WH_KD_V3L32_L1",
+    "kind": "feature_distillation_component",
+    "config": "configs/WH_KD/V3M_from_V3L32_L1.component.yml",
+    "ready": false
+  },
+  {
+    "id": "WH_KD_V3L32_L1_R1_ori",
+    "kind": "feature_distillation_component",
+    "config": "configs/WH_KD/V3M_from_V3L32_L1_R1_ori.component.yml",
+    "ready": false
+  },
+  {
+    "id": "WH_KD_V3L64_L1",
+    "kind": "feature_distillation_component",
+    "config": "configs/WH_KD/V3M_from_V3L64_L1.component.yml",
+    "ready": false
+  },
+  {
+    "id": "WH_KD_V3L64_L1_R1_ori",
+    "kind": "feature_distillation_component",
+    "config": "configs/WH_KD/V3M_from_V3L64_L1_R1_ori.component.yml",
+    "ready": false
+  },
+  {
+    "id": "WH_KD_V3L128_L1",
+    "kind": "feature_distillation_component",
+    "config": "configs/WH_KD/V3M_from_V3L128_L1.component.yml",
+    "ready": false
+  },
+  {
+    "id": "WH_KD_V3L128_L1_R1_ori",
+    "kind": "feature_distillation_component",
+    "config": "configs/WH_KD/V3M_from_V3L128_L1_R1_ori.component.yml",
+    "ready": false
+  }
+]

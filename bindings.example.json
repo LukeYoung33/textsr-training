@@ -1,0 +1,10 @@
+{
+  "PRETRAIN_TRAIN_MANIFEST": "",
+  "PRETRAIN_VAL_MANIFEST": "",
+  "NEW_TRAIN_MANIFEST": "",
+  "NEW_VAL_MANIFEST": "",
+  "INIT_ROOT": "",
+  "SG_PRETRAIN_ROOT": "",
+  "WH_TEACHER_ROOT": "",
+  "RUN_ROOT": ""
+}

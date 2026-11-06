@@ -1,0 +1,24 @@
+# Generated training artifacts and local environment
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+.env.*
+/data/
+/datasets/
+/weights/
+/initializations/
+/experiments/
+/results/
+/output/
+/delivery/
+/.artifacts/
+/bound/
+/bindings.*.json
+!bindings.example.json
+*.pth
+*.pt
+*.state
+*.npy
+*.npz

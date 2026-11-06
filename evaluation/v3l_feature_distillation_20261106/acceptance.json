@@ -1,0 +1,11 @@
+{
+  "syntax": 0,
+  "project_smoke": 0,
+  "teacher_profile": 0,
+  "focused_regression_tests": 0,
+  "test_count": 12,
+  "cuda_available": false,
+  "formal_training_launched": false,
+  "scope": "CPU teacher/distillation preparation, not full BasicSR training integration",
+  "timestamp": "2026-11-06T14:52"
+}

@@ -1,0 +1,97 @@
+# Proposed plan template; bind paths and validate real-data/CUDA behavior before launch.
+name: SG_FT_V3L128_L1_R1_ori_500k
+model_type: Block256RegionModel
+scale: 1
+num_gpu: 1
+manual_seed: 20260828
+paired_probability: 1
+network_g:
+  type: BasicTextLineR4TeacherY4UVV3L
+  canvas_hw:
+  - 256
+  - 256
+  compute_ratio: 128
+datasets:
+  train:
+    name: SG_FT_train
+    type: OfflineAugmentedRegionDataset
+    manifest: ${NEW_TRAIN_MANIFEST}
+    canvas_hw:
+    - 256
+    - 256
+    cache_shards: 2
+    batch_size_per_gpu: 4
+    num_worker_per_gpu: 2
+  val:
+    name: SG_FT_val
+    type: OfflineAugmentedRegionDataset
+    manifest: ${NEW_VAL_MANIFEST}
+    canvas_hw:
+    - 256
+    - 256
+    cache_shards: 2
+    batch_size_per_gpu: 1
+    num_worker_per_gpu: 0
+path:
+  pretrain_network_g: ${SG_PRETRAIN_ROOT}/V3L128.pth
+  strict_load_g: true
+  param_key_g: params
+  resume_state: null
+  experiments_root: ${RUN_ROOT}
+train:
+  ema_decay: 0
+  optim_g:
+    type: Adam
+    lr: 1.0e-05
+    betas:
+    - 0.9
+    - 0.99
+  scheduler:
+    type: CosineAnnealingRestartLR
+    periods:
+    - 500000
+    restart_weights:
+    - 1
+    eta_min: 1.0000000000000001e-07
+  total_iter: 500000
+  warmup_iter: 5000
+  loss_mode: native
+  train_reference_loss: false
+  validation_reference_loss: false
+  y4uv_native_opt:
+    type: Y4UVNativeMaskedL1LossV3
+    loss_weight: 1
+    channel_weight:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 0.25
+    - 0.25
+    fg_weight: 1
+    bg_weight: 1
+  aux_start_iter: 2000
+  aux_ramp_iters: 5000
+  cp_weight: 0
+  grad_weight: 0
+  bg_lf_weight: 0
+  sdf_boundary_weight: 0
+  uv_strong_weight: 0
+  recall_aware_weight_missing: 1
+  recall_aware_weight_false: 0.25
+  recall_aware_opt:
+    ring_radius: 3
+    margin: 0.03
+    temperature: 0.01
+    min_polarity_contrast: 0.03
+val:
+  val_freq: 50000
+  save_img: false
+  metrics: {}
+logger:
+  print_freq: 100
+  save_checkpoint_freq: 25000
+  use_tb_logger: false
+dist_params:
+  backend: nccl
+  port: 29517
