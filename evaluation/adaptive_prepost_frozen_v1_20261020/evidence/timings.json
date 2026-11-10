@@ -1,0 +1,42 @@
+[
+  {
+    "id": "002",
+    "post_timing_ms": {
+      "legacy_v5": 6649.423400005617,
+      "brightness": 665.3382000004058,
+      "adaptive": 733.3109999963199,
+      "adaptive_strong": 882.8315000064322
+    },
+    "model_route_seconds": 4.947495736181736
+  },
+  {
+    "id": "006",
+    "post_timing_ms": {
+      "legacy_v5": 5747.449599999527,
+      "brightness": 455.0204999977723,
+      "adaptive": 405.6313000037335,
+      "adaptive_strong": 496.3313999978709
+    },
+    "model_route_seconds": 1.2468462456017733
+  },
+  {
+    "id": "089",
+    "post_timing_ms": {
+      "legacy_v5": 7967.587599996477,
+      "brightness": 826.6145000015968,
+      "adaptive": 768.4572999933152,
+      "adaptive_strong": 933.4447000001092
+    },
+    "model_route_seconds": 1.536553930491209
+  },
+  {
+    "id": "093",
+    "post_timing_ms": {
+      "legacy_v5": 10136.229199997615,
+      "brightness": 1050.2966999993077,
+      "adaptive": 1082.758399999875,
+      "adaptive_strong": 1324.706100000185
+    },
+    "model_route_seconds": 2.47888495400548
+  }
+]

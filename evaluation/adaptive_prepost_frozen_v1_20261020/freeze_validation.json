@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "date": "2026-10-20",
+  "original_frozen_hashes_unchanged": true,
+  "helper_and_preprocess_byte_identical": true,
+  "postprocess_import_only_changes": true,
+  "current_default_post_gamma": 1.2,
+  "model_rerun": false,
+  "images": [
+    {
+      "id": "002",
+      "preprocess_pixel_exact": true,
+      "postprocess_default_pixel_exact": true,
+      "preprocess_pixel_sha256": "d32a3357c724a3af9163ad7df468650f2cc6e870787a9456ecb3ee52ffa38c8b",
+      "postprocess_pixel_sha256": "d06059e17e7b8667f43e4e42a34907f58a7e651c495d3c9d7cf3f3378ba6d072"
+    },
+    {
+      "id": "006",
+      "preprocess_pixel_exact": true,
+      "postprocess_default_pixel_exact": true,
+      "preprocess_pixel_sha256": "1f63c8d7e5cc4aa7f3600c8384cba113b39f27b83ea06c94f000cbf2adf99308",
+      "postprocess_pixel_sha256": "c4b6ae0814029a7ace93150024c0adcbab90466051bd5107191f5e35c85e2398"
+    },
+    {
+      "id": "089",
+      "preprocess_pixel_exact": true,
+      "postprocess_default_pixel_exact": true,
+      "preprocess_pixel_sha256": "488db8a70f6ad5235bc429e4cdb466c25f2d8995605ad3558ff69fc89511736e",
+      "postprocess_pixel_sha256": "299f5872cb490a461f445c5138278d0b81ab3ff8c4754b3f5d6f45b6b9e9d9e6"
+    },
+    {
+      "id": "093",
+      "preprocess_pixel_exact": true,
+      "postprocess_default_pixel_exact": true,
+      "preprocess_pixel_sha256": "874f9e7f1f000bb519575099f13a224ad60fe1143fc5a31075780046a8733611",
+      "postprocess_pixel_sha256": "b0656bc7066aa7392cd64f68a772cd389828b54583ca5a5059c322c450dcae68"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "source_threshold": 55.0,
+  "roi": [
+    320,
+    3750,
+    640,
+    3860
+  ],
+  "source_fixed_masks": true,
+  "arms": {
+    "source": {
+      "ink": 22.0,
+      "paper": 88.0,
+      "contrast": 66.0
+    },
+    "preprocessed": {
+      "ink": 25.0,
+      "paper": 89.0,
+      "contrast": 64.0
+    },
+    "model": {
+      "ink": 75.0,
+      "paper": 93.0,
+      "contrast": 18.0
+    },
+    "legacy_v5": {
+      "ink": 74.0,
+      "paper": 93.0,
+      "contrast": 19.0
+    },
+    "brightness": {
+      "ink": 69.0,
+      "paper": 87.0,
+      "contrast": 18.0
+    },
+    "adaptive": {
+      "ink": 71.0,
+      "paper": 88.0,
+      "contrast": 17.0
+    },
+    "adaptive_strong": {
+      "ink": 74.0,
+      "paper": 89.0,
+      "contrast": 15.0
+    }
+  }
+}

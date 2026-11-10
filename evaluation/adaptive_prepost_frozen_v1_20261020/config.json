@@ -1,0 +1,56 @@
+{
+  "package_version": "adaptive_prepost_frozen_v1_20261020",
+  "context_version": "adaptive_dualmode_scurve_v1",
+  "frozen_date": "2026-10-20",
+  "status": "current_baseline_frozen_at_user_request",
+  "preprocess": {
+    "lower_estimator": "mode",
+    "upper_estimator": "mode",
+    "gamma": 1.8,
+    "canvas_width": 1984,
+    "canvas_height": 1472,
+    "pitch": 4,
+    "normalization_reference": 128,
+    "paper_floor": 32,
+    "analysis_window_max_width": 16,
+    "seed_plateau_max_spread": 12,
+    "seed_edge_max_discrepancy": 16,
+    "gating": false,
+    "otsu_group_min_pixels": 16,
+    "otsu_group_min_fraction": 0.005,
+    "high_mode_reference_check_tolerance": 12,
+    "confidence": "diagnostic only",
+    "numeric_fallback_normalized_anchors": [
+      0,
+      64,
+      128
+    ]
+  },
+  "postprocess": {
+    "default_gamma": 1.2,
+    "comparison_gamma_values": [
+      1.0,
+      1.8
+    ],
+    "current_estimator": "mode/mode on low-resolution model-output canvas",
+    "target": "frozen preprocessing local anchors",
+    "gating": false,
+    "brightness_only_comparison_gamma": 1.0,
+    "legacy_guards_and_repairs": false
+  },
+  "render": {
+    "lut_entries": 256,
+    "lut_format": "uint16 Q8.8",
+    "spatial_weight_format": "uint32 Q12",
+    "placement": "original immutable input, ordered first ownership",
+    "luma": "OpenCV BGR2YCrCb Y",
+    "color_application": "bounded shared BGR delta"
+  },
+  "geometry": {
+    "supported": "aligned full frame and independent axis scaling",
+    "caller_must_supply_matching_frame_and_context": true,
+    "warped_line_context_not_automatically_transformed": true
+  },
+  "known_limitation": "093shadow loses contrast in model route; stronger postprocessing does not repair it",
+  "production_integrated": false
+}

@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "anchor_transfer": true,
+  "full_range_identity_gamma1": true,
+  "polarity_reflection": true,
+  "known_shift_repair": true,
+  "scaled_geometry": true,
+  "outside_ocr_unchanged": true,
+  "frozen006_exact": true,
+  "frozen_replays": [
+    {
+      "reference_bytes_float32": 77008,
+      "id": "002",
+      "file": "evaluation\\adaptive_postprocess_pilot_20261019\\preprocessed\\IMG_20260605_011946402.png",
+      "table_bytes": 2464256,
+      "boxes": 27,
+      "all_nodes": true
+    },
+    {
+      "reference_bytes_float32": 45792,
+      "id": "006",
+      "file": "evaluation\\adaptive_postprocess_pilot_20261019\\preprocessed\\IMG_20260605_012823014.png",
+      "table_bytes": 1465344,
+      "boxes": 11,
+      "all_nodes": true
+    },
+    {
+      "reference_bytes_float32": 131184,
+      "id": "089",
+      "file": "evaluation\\adaptive_postprocess_pilot_20261019\\preprocessed\\IMG_20260605_043904966.png",
+      "table_bytes": 4197888,
+      "boxes": 21,
+      "all_nodes": true
+    },
+    {
+      "reference_bytes_float32": 228864,
+      "id": "093",
+      "file": "evaluation\\adaptive_postprocess_pilot_20261019\\preprocessed\\IMG_20260605_044313502.png",
+      "table_bytes": 7323648,
+      "boxes": 42,
+      "all_nodes": true
+    }
+  ],
+  "native_statistical_pixels": 0,
+  "model_inference_executed": false
+}

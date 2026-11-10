@@ -1,0 +1,15 @@
+{
+  "lowres_curve_source": "evaluation\\adaptive_dualmode_scurve_frozen_v1_20261019\\lowres_curve.py",
+  "lowres_curve_sha256": "10cd1144c77fd98c813373960ac415846978ece14ad28fb1049efd810ddb27fa",
+  "preprocess_source": "evaluation\\adaptive_dualmode_scurve_frozen_v1_20261019\\api.py",
+  "preprocess_sha256": "3da4ca4aeda587ab8cd91bf61cecc6df2dc8908491456b3621f6146dd7242348",
+  "postprocess_source": "tools\\postprocess_adaptive_dualmode.py",
+  "postprocess_original_sha256": "1c2600113f64a05f43bce842a7a9f7df2c1b6e1eedcc0e948f91c548ba563543",
+  "postprocess_packaging_edits": [
+    "relative import of frozen lowres_curve",
+    "remove workspace-specific sys.path bootstrap"
+  ],
+  "algorithms_changed": false,
+  "preexisting_preprocess_manifest": "evaluation\\adaptive_dualmode_scurve_frozen_v1_20261019\\manifest.json",
+  "preexisting_preprocess_manifest_sha256": "5eb7080e96a1cb318ec3ed94d430643067b50e2f846dc8c57ac483d72a77a132"
+}

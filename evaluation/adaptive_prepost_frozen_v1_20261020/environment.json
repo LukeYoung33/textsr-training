@@ -1,0 +1,13 @@
+{
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "architecture": "AMD64",
+  "cv2_runtime": "4.13.0",
+  "numpy_runtime": "2.4.5",
+  "installed_relevant_distributions": {
+    "numpy": "2.4.5",
+    "opencv-python": "4.13.0.92",
+    "opencv-python-headless": "4.13.0.92"
+  },
+  "note": "Recorded validation environment; installation is not executed by this package. Production camera YUV integration remains separate."
+}

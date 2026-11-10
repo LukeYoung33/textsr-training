@@ -1,0 +1,29 @@
+{
+  "version": "adaptive_prepost_frozen_v1_20261020",
+  "status": "frozen_current_baseline",
+  "date": "2026-10-20",
+  "preprocess_gamma": 1.8,
+  "postprocess_default_gamma": 1.2,
+  "known093_limitation": true,
+  "algorithms_changed": false,
+  "files": {
+    "__init__.py": "142672740d12cb0fd9efc2c105876901098489028fee08df95c54407d1663052",
+    "config.json": "ad7da343a33dbe4994b5f7ff8a0a55eb53baa13651372ba5b7d576b1195b9740",
+    "environment.json": "bf115979afbbf80d07c0e2ef07726a371e594c5d399786cab27038114108a217",
+    "evidence/093_shadow_diagnostic.json": "6c840d558e4019ff9292bb70fe91c0f1c8c0f4b897e905342e4c75b94cda427c",
+    "evidence/crops/002.png": "b3d2a00823298fc524de0f7d4c123006f86c007a23fbd88159b7a4f8d547a2ca",
+    "evidence/crops/006.png": "66293fe3a470c658d56298355cab7581a701c5ec7bbf9b78cdab3ed616d30e7c",
+    "evidence/crops/089.png": "f0c53788267cf7b415649fea1e320674c9de5bd2bddce834dea747ba6fe3a790",
+    "evidence/crops/093.png": "6fd2f7926f8aab3a622f68b2423551f9c22022c7b00e89f8018810b7169e7f52",
+    "evidence/prior_real_model_verification.json": "905a060f19762b50591087aaf3087bf3e9fc6b81ccd76b1400c64f14a3ebe100",
+    "evidence/timings.json": "81aa9219ead6bb642c31816aca44f39d50a9c9fbe6488c74c5a64b2b718f72cb",
+    "evidence/validation.json": "ab7fcdd93e52eb3417fc43e797a857d8be3b03cdcbf513f1e55837658f57c0f3",
+    "freeze_validation.json": "7ac54e87f259c69c7fd70e994e0169a9c9f3c915a4f24e26af1df8824198367f",
+    "lowres_curve.py": "10cd1144c77fd98c813373960ac415846978ece14ad28fb1049efd810ddb27fa",
+    "postprocess.py": "a46fdecd75439c941f7567068418dc92e995045eff3c580ff33bea7691340ff2",
+    "preprocess.py": "3da4ca4aeda587ab8cd91bf61cecc6df2dc8908491456b3621f6146dd7242348",
+    "provenance.json": "cb5365f5a90fbaefc5c7c6eeff2e3be27e7540603a59199063e755c09816487d",
+    "TECHNICAL_DESIGN.md": "2e80dc1f74f406476bb0043fbe561a88c31a47afdbb9c67ec953ea0a9ea5e754",
+    "verify.py": "d3d16858d8fe1421063e464ebc5fccea27b3e8612181263bc99bf9d5a2af05c9"
+  }
+}

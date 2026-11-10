@@ -8,3 +8,6 @@
 /evaluation/document_box_neighbor_20261027/test_neighbor.py -text
 /evaluation/document_box_pre640_revision2_20261027/test_revision2.py -text
 /evaluation/document_box_pre640_astra_20261027/test_pre640.py -text
+
+# Preserve the complete frozen dataset-builder integrity package.
+/evaluation/adaptive_prepost_frozen_v1_20261020/** -text
