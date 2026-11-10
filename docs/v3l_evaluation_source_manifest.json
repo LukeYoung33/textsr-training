@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-10",
+  "hash_scope": "Git blob bytes; existing dependencies unchanged",
+  "runtime_driver_byte_identical": true,
+  "files": {
+    "tools/evaluate_v3l_final_sets.py": "c7a84d65f1897498cbd640c10409ed81202a94ef7083b5a11758241ad4884f99",
+    "tools/evaluate_v3pre_three_mojito280.py": "18c5576c2ba2e9393228d3ac1ce77980a240ff23495fc4ff1ecbe6c75484d7a4",
+    "tools/evaluate_latest_six_mojito280.py": "14d068b9c177d3fa8835d5674854c948708e3ac272e5a02bdadc2d46f544759c",
+    "tools/prepare_v3pre_training.py": "039de98e3875bd4cf2ec54c89e2f8440fa2bc4181ad30cf57431b0b9ba395cf8",
+    "tools/restore_crop8_block256.py": "ae0e084e07c58ec1c38e63b5440b0f323018d3127ad9a9c31eba7432bc9e4a29",
+    "tools/native_y_curve_four_images.py": "1c1696c0ab826ba9670cfaee1c8acab1eac9d703840e8403cbfe2bf5bd0b3089",
+    "tools/sg_wh_training_runtime.py": "ec0bb01be6d52a708e45e68265a2e99bc7ce2dbf357078c3dd586ebacf961080",
+    "tools/train_v3m_block256.py": "9cce540069cf29c9b7869309742f31d20697f7b99e6fe2bd917ce31ea8bd78ce",
+    "tools/evaluate_offline_camera_matrix.py": "3fce38c54be2bd65d2d82c0706f8e9a1131a11d9f499aa30beb0b5857c7383d7",
+    "tools/run_uniform20_steep_scurve.py": "99c71c6d4ee9f5319b92cff445e8a0a720d0dda7da77f6a023b413657136bc44",
+    "evaluation/document_box_neighbor_20261027/neighbor.py": "dca994d66ee78bdd3d84892ffd5ad09d06c26a7a2c16a40c3f4c0501662f31ed",
+    "evaluation/document_box_pre640_revision2_20261027/revision2.py": "09e340a85a96c146bebcdf6db074ff13c5734cf48262ace0f4ec14528211cbff",
+    "evaluation/document_box_pre640_astra_20261027/pre640.py": "0dadc5ce47faea782a07b8f9d3d4cd39dd909618be23a82f1e59065a181195d8",
+    "tools/adaptive_scurve_robust_v2.py": "9821c6fcc803b69394e4f486007470fa5f0ed3c5334cc8b9695db78f00b00756",
+    "evaluation/adaptive_prepost_frozen_v1_20261020/lowres_curve.py": "10cd1144c77fd98c813373960ac415846978ece14ad28fb1049efd810ddb27fa",
+    "evaluation/adaptive_prepost_frozen_v1_20261020/postprocess.py": "a46fdecd75439c941f7567068418dc92e995045eff3c580ff33bea7691340ff2",
+    "evaluation/document_box_neighbor_20261027/test_neighbor.py": "9cae4925d6f7bf6e6fc4e321bdb82fbb9ebe70c9e6a665cf0c1d7127b37426af",
+    "evaluation/document_box_pre640_revision2_20261027/test_revision2.py": "5e5198df21ab74881d86fa08c4afcdc94a87f1dd33afc338ce906fbc2bb5ec88",
+    "evaluation/document_box_pre640_astra_20261027/test_pre640.py": "75055455fd3b018d1ba333a7dedb370661840f747a5a640e000e41f5de2a5458"
+  }
+}

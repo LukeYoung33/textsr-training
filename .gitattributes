@@ -1,0 +1,10 @@
+# Preserve frozen evaluation source bytes used by SHA256 receipts.
+/tools/evaluate_v3l_final_sets.py -text
+/evaluation/document_box_neighbor_20261027/neighbor.py -text
+/evaluation/document_box_pre640_revision2_20261027/revision2.py -text
+/evaluation/document_box_pre640_astra_20261027/pre640.py -text
+/evaluation/adaptive_prepost_frozen_v1_20261020/lowres_curve.py -text
+/evaluation/adaptive_prepost_frozen_v1_20261020/postprocess.py -text
+/evaluation/document_box_neighbor_20261027/test_neighbor.py -text
+/evaluation/document_box_pre640_revision2_20261027/test_revision2.py -text
+/evaluation/document_box_pre640_astra_20261027/test_pre640.py -text
