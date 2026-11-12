@@ -1,0 +1,185 @@
+{
+  "source_config_sha256": "dc7e432bcc612cc366c770c3ddd3de9bf3d752a897e946f966dccdca6cac9314",
+  "source_checkpoint_sha256": "10504ba47b9aff6d5dfde48620271045e23f55cc16b75efb35b8763c9485d71a",
+  "dependency_files": [
+    {
+      "path": "basicsr/data/__init__.py",
+      "sha256": "944efb5f86f8ce2ffa4d882cf1211d8ead15fdc928577dee7b3d474f4d7ef774"
+    },
+    {
+      "path": "basicsr/data/data_sampler.py",
+      "sha256": "a9e34eacaa8c5307f885b347cf65d3c25b15e4f5e23c9e4d86587d11fe4179f7"
+    },
+    {
+      "path": "basicsr/data/prefetch_dataloader.py",
+      "sha256": "d1d12d4e50eaaaa9a87cd9036c9b0c784df45417470c413417a528c5977d21d4"
+    },
+    {
+      "path": "basicsr/models/__init__.py",
+      "sha256": "9d3d501c91e71a03e2fe3cb0ff0bc8293fe461e4a38c561032f33ed227a33895"
+    },
+    {
+      "path": "basicsr/models/base_model.py",
+      "sha256": "67ffa7537ccb92f876478b36832dacb163258bbb0a89ca265af19b2ea3853cc8"
+    },
+    {
+      "path": "basicsr/models/lr_scheduler.py",
+      "sha256": "44b5639fa1ee8a15628134e653a31931d961c4f9650088bb5ec26cb6ae404c34"
+    },
+    {
+      "path": "basicsr/train.py",
+      "sha256": "492bb20e1b428612b2d512d80edbc569b4f791a612dedeb607a40dd258a960bc"
+    },
+    {
+      "path": "basicsr/utils/__init__.py",
+      "sha256": "b5c4921aa0467b74f80c1ffe991e4c6bf157f182f9ae407c611bed2961f97dd7"
+    },
+    {
+      "path": "basicsr/utils/dist_util.py",
+      "sha256": "e6a6d7fced5146ff2e1f16cb0ce1c922171fe7e8b28c011178695ebed4f477b8"
+    },
+    {
+      "path": "basicsr/utils/download_util.py",
+      "sha256": "659a3679c7a0fcbb1cbe035e1326571335f16dc5bdfae4e2b61efbf75cbf8fb4"
+    },
+    {
+      "path": "basicsr/utils/options.py",
+      "sha256": "ccc498f15560d39b86a7f4d50f55cbfd6def103b0e4245f0a264a5e6537983e2"
+    },
+    {
+      "path": "basicsr/utils/registry.py",
+      "sha256": "6b4705b017fe4589d29603592defa6bf58c70c8936666d9c82de8485b2e4d0b5"
+    },
+    {
+      "path": "realesrgan/data/basic_text_line_y4uv_v3.py",
+      "sha256": "e8471a67d69245c3babc439c002a43468b4adfb7cb361b39e08cff3b9b824680"
+    },
+    {
+      "path": "realesrgan/data/offline_augmented_region_dataset.py",
+      "sha256": "625d5c4695e3c1180df49a808b44938900c957ba399746b8ce841a1548c40419"
+    },
+    {
+      "path": "realesrgan/models/block256_region_model.py",
+      "sha256": "fd45481b96385a44a4e79729c97a8dbc140a2ccd6d2dc2df087b2861777632aa"
+    },
+    {
+      "path": "realesrgan/models/native_region_0921_model.py",
+      "sha256": "a8e24563e382e70edc6fe1e3338a819f8d689ff1b718af1e794ab61f6b9be772"
+    },
+    {
+      "path": "realesrgan/models/v3pre_area_adapters.py",
+      "sha256": "05de68335a1c2ba0cb77a05980620c5809c7daa9b908e3bd1f93b201ae1cfb87"
+    },
+    {
+      "path": "realesrgan/utils.py",
+      "sha256": "5122f1904d8d30d5cfcbfaaeefe49f4434d9e85dd1fd952cefe9bb7a92de7a0d"
+    },
+    {
+      "path": "tools/patch_contrast_alignment.py",
+      "sha256": "444b292a871ba1c4ebec998306b57f098847c501f3d6dfacc919dd740f48a55d"
+    },
+    {
+      "path": "tools/prepare_r1_width_bank.py",
+      "sha256": "1fd3f579536d41971c07288de875fd0ea5e8126c151009047e420ea7b4cc8ffb"
+    },
+    {
+      "path": "tools/prepare_v3pre_training.py",
+      "sha256": "039de98e3875bd4cf2ec54c89e2f8440fa2bc4181ad30cf57431b0b9ba395cf8"
+    },
+    {
+      "path": "tools/run_uniform20_steep_scurve.py",
+      "sha256": "99c71c6d4ee9f5319b92cff445e8a0a720d0dda7da77f6a023b413657136bc44"
+    },
+    {
+      "path": "tools/train_filtered_three.py",
+      "sha256": "0566f77a1af45bc7673eff6482714ce986d3bcbd3e783badb5c42588c40411e3"
+    },
+    {
+      "path": "tools/train_full_s22_strategy.py",
+      "sha256": "73f5d79732f25ae972737a61d94eeb20b10b7513087a10b243d4a0fd70bf0857"
+    },
+    {
+      "path": "tools/train_gt1_r1_four.py",
+      "sha256": "e2b4553c2f58796b20b35a202a05d54d5e528db12ead036130082510bdee5e40"
+    },
+    {
+      "path": "tools/train_latest_vosr_500k.py",
+      "sha256": "567054d7724d7a551a7faa291c4ccf415590b52b121230736db2c8d5ba6c7e0a"
+    },
+    {
+      "path": "tools/train_latest_vosr_mix50.py",
+      "sha256": "ef0daf4638a9dcd3d61a29461e15ff1dad030f84c12dd72a67005d47cd8329e5"
+    },
+    {
+      "path": "tools/train_offline_augmented_regions.py",
+      "sha256": "b3ece34065b4b011c0d28788ee4195cc75dcb7708f4436baa5e769f2b76e026d"
+    },
+    {
+      "path": "tools/train_offline_comparison.py",
+      "sha256": "92e5d60a86034175250f3b9639e23bf65d8d6abc1acb400df64de3ddd356ec5e"
+    },
+    {
+      "path": "tools/train_r1_width_500k.py",
+      "sha256": "66fe7d1156f1e27991a85858fbf7ac6dd2847c95bed894299bf40ee6cb9ca198"
+    },
+    {
+      "path": "tools/train_v3_edge_pilot.py",
+      "sha256": "24845ab7452db168d29218bfdae7a0e8def80209da75767f271909812f3e7e31"
+    },
+    {
+      "path": "tools/train_v3_native_regions.py",
+      "sha256": "aabd0a3d42d63fc366afb69ed9dcbc6c859a7699746007f9caecc76434cab153"
+    },
+    {
+      "path": "tools/train_v3m_block256.py",
+      "sha256": "9cce540069cf29c9b7869309742f31d20697f7b99e6fe2bd917ce31ea8bd78ce"
+    },
+    {
+      "path": "tools/train_v3pre_area.py",
+      "sha256": "c2e46a31933f1195ccfee025e833a1d422d1adf3d8f911a1da2483929c3680bd"
+    },
+    {
+      "path": "tools/train_vosr_block256.py",
+      "sha256": "4f464bc4b2cc9020d77c5187f772b99f06f3795b7dfca3b2ea31f8d83f9a12ea"
+    }
+  ],
+  "delivery_files": [
+    {
+      "path": "tools/train_v3m_r1_ori_portable.py",
+      "sha256": "801fcb0a9193689197252baab3543c0de61355f063caae165bdd7dfbbfa2ff9b"
+    },
+    {
+      "path": "configs/V3M_EXECUTED/plus1_500k.executed.yml",
+      "sha256": "dc7e432bcc612cc366c770c3ddd3de9bf3d752a897e946f966dccdca6cac9314"
+    },
+    {
+      "path": "configs/V3M_EXECUTED/V3M_L1_R1_ori_500k.template.yml",
+      "sha256": "691b5cccfea6e15fc7602dc2a6b3286900181f91f9746115e70a0aa07cdcce93"
+    },
+    {
+      "path": "configs/V3M_EXECUTED/bindings.example.json",
+      "sha256": "0e166b666e0b72d3daba2afa523914c53273dab153cec3563bfd00b606a178ab"
+    }
+  ],
+  "validation": {
+    "linux_check": {
+      "checked": true,
+      "trained": false,
+      "parameters": 89184,
+      "lr": [
+        0.0001,
+        5e-05,
+        2.5e-05,
+        1e-05,
+        5e-06,
+        5e-06
+      ]
+    },
+    "focused_tests": "test_v3m_textboost: 3 passed",
+    "compileall": 0,
+    "cli_smoke": 0,
+    "binding_equivalence": true,
+    "training_started": false
+  },
+  "dependency_hash_basis": "Git HEAD blob bytes; checkout line endings may differ. Delivery source/config paths preserve exact bytes with -text attributes."
+}

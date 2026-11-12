@@ -11,3 +11,8 @@
 
 # Preserve the complete frozen dataset-builder integrity package.
 /evaluation/adaptive_prepost_frozen_v1_20261020/** -text
+
+# Preserve executed V3M configuration and portable-entry receipts.
+/configs/V3M_EXECUTED/** -text
+/tools/train_v3m_r1_ori_portable.py -text
+/docs/v3m_r1_ori_source_manifest.json -text

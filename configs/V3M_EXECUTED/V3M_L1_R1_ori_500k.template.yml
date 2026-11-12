@@ -1,0 +1,245 @@
+name: V3M_L1_R1_ori_paired_500k
+model_type: FilteredPairedModel
+scale: 1
+num_gpu: 1
+manual_seed: 20260828
+color: y4uv420
+high_order_degradation: false
+gt_usm: false
+queue_size: 0
+lq_preprocess:
+  enabled: false
+resize_prob:
+- 0.2
+- 0.7
+- 0.1
+resize_range:
+- 0.15
+- 1.5
+gaussian_noise_prob: 0.5
+noise_range:
+- 1
+- 30
+poisson_scale_range:
+- 0.05
+- 3
+gray_noise_prob: 0.4
+jpeg_range:
+- 30
+- 95
+second_blur_prob: 0.8
+resize_prob2:
+- 0.3
+- 0.4
+- 0.3
+resize_range2:
+- 0.3
+- 1.2
+gaussian_noise_prob2: 0.5
+noise_range2:
+- 1
+- 25
+poisson_scale_range2:
+- 0.05
+- 2.5
+gray_noise_prob2: 0.4
+jpeg_range2:
+- 30
+- 95
+network_g:
+  type: BasicTextLineR4StudentY4UVV3M
+  canvas_hw:
+  - 256
+  - 256
+  in_channel: 6
+  out_channel: 6
+  layer_num: 3
+  expand_channel:
+  - 0.6666666666666666
+  - 1.3333333333333333
+  - 2.6666666666666665
+  - 5.333333333333333
+  depth_factor: 1
+  scale_factor: 2
+  with_idt: false
+  act_type: prelu
+  scale: 2
+  with_proj: true
+  haar_switch: true
+  learnable_haar: false
+path:
+  pretrain_network_g: ${INIT_ROOT}/V3M.pth
+  resume_state: null
+  strict_load_g: true
+  experiments_root: ${RUN_ROOT}
+train:
+  model_type: FilteredPairedModel
+  ema_decay: 0
+  optim_g:
+    type: Adam
+    lr: 0.0001
+    betas:
+    - 0.9
+    - 0.99
+  scheduler:
+    type: LatestVOSR500K
+  total_iter: 500000
+  loss_mode: native
+  train_reference_loss: false
+  validation_reference_loss: true
+  aux_start_iter: 2000
+  aux_ramp_iters: 5000
+  cp_weight: 0.0
+  grad_weight: 0.0
+  uv_strong_weight: 0.0
+  uv_strong_opt: null
+  y4uv_native_opt:
+    type: Y4UVNativeMaskedL1LossV3
+    loss_weight: 1.0
+    fg_weight: 1.0
+    bg_weight: 1.0
+    channel_weight:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 0.25
+    - 0.25
+  yuv444_reference_opt:
+    type: YUV444ReferenceMaskedL1LossV3
+    loss_weight: 1.0
+    fg_weight: 1.0
+    bg_weight: 1.0
+    channel_weight:
+    - 1.0
+    - 0.25
+    - 0.25
+  cp_opt: null
+  grad_opt: null
+  recall_aware_weight_missing: 1.0
+  recall_aware_weight_false: 0.25
+  recall_aware_opt:
+    ring_radius: 3
+    margin: 0.03
+    temperature: 0.01
+    min_polarity_contrast: 0.03
+  bg_lf_weight: 0.0
+  bg_lf_opt: null
+  sdf_boundary_weight: 0.0
+  sdf_boundary_opt: null
+  cldice_weight: 0.0
+  stroke_core_weight: 0.0
+  cldice_opt: null
+  stroke_core_opt: null
+datasets:
+  train:
+    name: vosr_block256_train
+    type: S22Dataset
+    split: train
+    canvas_hw:
+    - 256
+    - 256
+    blur_kernel_size: 21
+    kernel_list:
+    - iso
+    - aniso
+    - generalized_iso
+    - generalized_aniso
+    - plateau_iso
+    - plateau_aniso
+    kernel_prob:
+    - 0.45
+    - 0.25
+    - 0.12
+    - 0.03
+    - 0.12
+    - 0.03
+    sinc_prob: 0.1
+    blur_sigma:
+    - 0.2
+    - 3
+    betag_range:
+    - 0.5
+    - 4
+    betap_range:
+    - 1
+    - 2
+    blur_kernel_size2: 21
+    kernel_list2:
+    - iso
+    - aniso
+    - generalized_iso
+    - generalized_aniso
+    - plateau_iso
+    - plateau_aniso
+    kernel_prob2:
+    - 0.45
+    - 0.25
+    - 0.12
+    - 0.03
+    - 0.12
+    - 0.03
+    sinc_prob2: 0.1
+    blur_sigma2:
+    - 0.2
+    - 1.5
+    betag_range2:
+    - 0.5
+    - 4
+    betap_range2:
+    - 1
+    - 2
+    final_sinc_prob: 0.8
+    batch_size_per_gpu: 4
+    num_worker_per_gpu: 2
+    dataset_enlarge_ratio: 1
+    use_shuffle: true
+    train_homography_prob: 0
+    train_homography_jitter: 0
+    manifest: ${TRAIN_MANIFEST}
+    cache_images: 2
+    root: ${TRAIN_ROOT}
+    cache_shards: 8
+    patch_contrast_alignment: false
+    require_effective_text: true
+  val:
+    name: vosr_block256_val
+    type: S22Dataset
+    split: val
+    canvas_hw:
+    - 256
+    - 256
+    batch_size_per_gpu: 4
+    num_worker_per_gpu: 2
+    manifest: ${VAL_MANIFEST}
+    cache_images: 2
+    root: ${VAL_ROOT}
+    train_homography_prob: 0
+    train_homography_jitter: 0
+    cache_shards: 8
+    patch_contrast_alignment: false
+val:
+  val_freq: 25000
+  save_img: false
+  metrics: {}
+logger:
+  print_freq: 100
+  save_checkpoint_freq: 5000
+  use_tb_logger: false
+dist_params:
+  backend: nccl
+  port: 36610
+paired_probability: 1.0
+v3pre_target_domain: VOSR+S2.2 repaired GT width plus1;same5284;no Mojito;paired-only;contrast
+  off
+s22_strategy:
+  name: paired
+  gradient_ratio: 0.5
+  calibration_active_batches: 8
+  audit_root: ${AUDIT_ROOT}
+s22_patch_contrast_experiment: true
+filtered_control:
+  kind: ori
+  synthetic_gt_probability: 0
+  contrast_alignment: false
+  train_count: 5284

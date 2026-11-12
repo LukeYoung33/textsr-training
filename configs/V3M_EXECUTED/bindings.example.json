@@ -1,0 +1,9 @@
+{
+  "INIT_ROOT": "/path/to/initial",
+  "TRAIN_MANIFEST": "/path/to/train_bank/train.json",
+  "TRAIN_ROOT": "/path/to/train_bank",
+  "VAL_MANIFEST": "/path/to/val_bank/val.json",
+  "VAL_ROOT": "/path/to/val_bank",
+  "RUN_ROOT": "/path/to/runs",
+  "AUDIT_ROOT": "/path/to/audits"
+}
