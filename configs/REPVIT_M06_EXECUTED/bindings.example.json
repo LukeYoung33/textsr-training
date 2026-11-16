@@ -1,0 +1,9 @@
+{
+  "REPVIT_INIT": "/replace/repvit_init",
+  "RUN_ROOT": "/replace/run_root",
+  "AUDIT_ROOT": "/replace/audit_root",
+  "TRAIN_MANIFEST": "/replace/train_manifest",
+  "TRAIN_ROOT": "/replace/train_root",
+  "VAL_MANIFEST": "/replace/val_manifest",
+  "VAL_ROOT": "/replace/val_root"
+}

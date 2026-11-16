@@ -1,0 +1,21 @@
+{
+  "docs/repvit_m06/historical/audit_model.py": "7560f566851b9a35ba9a33e3ba5a8316287e4662d1c14e8849eeaa7ee9c60598",
+  "docs/repvit_m06/historical/CODE_BINDINGS.json": "cb55447b0e092d02eea95db2a4b431b6873e65ce4d4e96dd9f11f962cdb4c7a8",
+  "docs/repvit_m06/historical/CONFIG_BINDINGS.json": "20531ec69b04985b4a5fd108c1aee273b3b2f4d3a29fedeaa46b1206575f5312",
+  "docs/repvit_m06/historical/convert_fixed.py": "9987d34f2b5945e6f6e56dd350dacd81e3d8f66e59000f7ba6cf5343042013fd",
+  "docs/repvit_m06/historical/deployment_model_manifest.json": "6ab95d8fe806458d65a9d75367f8b8bcc6cd83bae400ceb4aadc96cc411cbb66",
+  "docs/repvit_m06/historical/export_model.py": "14953c44dc2d220e83afa63cd79ef7417f8e9bbc534cd4c06c018a2210e279f6",
+  "docs/repvit_m06/historical/idea010_repvit_report.py": "35993d45b9bb9e39b07e873b64f79f3cbd05149af3ea5fc5c17139173ffff3e1",
+  "docs/repvit_m06/historical/idea010_repvit_smoke.py": "615ae40c36dacb30b66afbd9f7bb36f24cd2796e5ab68360f5397fe439e2609a",
+  "docs/repvit_m06/historical/idea010_repvit_train.py": "91c17f30d5c0659c3ac0dda5bd776d95fce2397a94d5e1d35a9d13267e93e9b0",
+  "docs/repvit_m06/historical/PROFILE.json": "4ddbdb705a11c87f6ff9b4b10d4874e58c9ecabc428eefe4e36d147707946c97",
+  "configs/REPVIT_M06_EXECUTED/bindings.example.json": "2b39150ba9e4f38e0d6daad4b26f4a0eb715962cd42cf7995b1771a50ab0980b",
+  "configs/REPVIT_M06_EXECUTED/l1.template.yml": "2110b221c63cfa02af85b5f589f913691dd039cc22cbd9e4d4f2ce0015267de7",
+  "configs/REPVIT_M06_EXECUTED/ori.executed.yml": "25eaa31dc536e64a5252ea6d3127c76115e3dbe7141692d667c45418891aadd9",
+  "configs/REPVIT_M06_EXECUTED/ori.template.yml": "484208761f4208a4fec74ab7811673fb910fe3140a6ba749f8241712c8cd01f4",
+  "tools/idea009_evit_arch.py": "ba4bcff5f8cd335e69fb3edecb31a164efd583dc53efdcbada08e8571fce5c9d",
+  "tools/idea010_repvit_arch.py": "f3ea343de827b06661c2901a9fce6673a0d0aa19cdde2a2e1d290614b1c211c7",
+  "tools/train_repvit_m06_portable.py": "b9b294cf7b1c6537ffa528f26f0d282a4c5e7775760daf9980f889b33d753a82",
+  "tools/idea010_repvit_tanh_arch.py": "7d78813cd2779bfe4e654ac3ce12cf8bbdc9dadba36c780179a511a9b45cc9aa",
+  "docs/repvit_m06/README.md": "d31c47a2d28d169a6ecf76b69658c273755926b875958090879acd1f2d270cf4"
+}

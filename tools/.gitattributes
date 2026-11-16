@@ -1,0 +1,3 @@
+idea009_evit_arch.py -text whitespace=cr-at-eol
+idea010_repvit_arch.py -text whitespace=cr-at-eol
+train_repvit_m06_portable.py -text whitespace=cr-at-eol

@@ -112,3 +112,8 @@ python -m pytest -q tests/test_v3l_feature_distillation.py tests/test_v3m_textbo
 本包不含数据集、训练图片、真实数据 manifest、训练结果、已训练模型、缓存、Git/SVN 对象、安装好的环境或编译后二进制。可选 OCR/感知损失的外部权重不包含，当前模板关闭这些目标。
 
 VALIDATION.json 明确区分交付副本检查与目标 CUDA 就绪状态。evaluation/ 下的既有 CPU 验证记录不能视为目标机器验收。解压不会自动训练或访问网络。
+
+
+## RepViT-M0.6
+
+[RepViT-M0.6 training and deployment / ?????](docs/repvit_m06/README.md)

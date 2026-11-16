@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RepViT-M0.6 与 V3M｜部署与耗时结论 · 独立分享版</title>
+<style>
+:root{--ink:#17283e;--muted:#596a7d;--line:#dce4ec;--blue:#245bc9;--teal:#117e73;--amber:#99600b;--paper:#fff;--bg:#f1f5f9}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 system-ui,-apple-system,"Microsoft YaHei",sans-serif}main{max-width:1120px;margin:auto;padding:40px 28px 70px}header{padding:32px 36px;background:#172b46;color:white;border-radius:20px}header p{color:#c7d5e7;margin:10px 0 0}.eyebrow{font-size:12px;letter-spacing:2px;color:#9fbce8}h1{font-size:32px;line-height:1.35;margin:10px 0}h2{font-size:23px;margin:0 0 16px}h3{font-size:17px;margin:0 0 8px}p{margin:8px 0 14px}section{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;margin-top:22px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}.card{background:white;padding:22px;border:1px solid var(--line);border-radius:14px}.number{display:block;font-size:30px;font-weight:750;color:var(--blue)}.muted,small{color:var(--muted)}.tag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:12px;font-weight:650;background:#e7f4ef;color:var(--teal)}.tag.warn{background:#fff1d9;color:var(--amber)}.note{padding:14px 18px;background:#eef4ff;border-left:4px solid var(--blue);border-radius:5px;margin:16px 0}.warning{background:#fff7e8;border-color:#d59837}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:left;padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#f2f6fb;font-weight:650;white-space:nowrap}td.num{text-align:right;white-space:nowrap}tr.dim{color:#7b6041;background:#fffaf0}a{color:var(--blue)}code{font:13px/1.65 Consolas,monospace;overflow-wrap:anywhere;background:#eef2f7;padding:2px 5px;border-radius:4px}.formula{background:#14283d;color:#d5e7fc;border-radius:8px;padding:14px 17px;overflow:auto;font:13px/1.7 Consolas,monospace}.step{display:grid;grid-template-columns:36px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}.badge{width:32px;height:32px;background:#eaf0fe;color:var(--blue);border-radius:50%;display:grid;place-items:center;font-weight:700}.step p{margin:4px 0 0}.controls{display:flex;flex-wrap:wrap;align-items:end;gap:14px;margin:20px 0}label{font-size:13px;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit;border:1px solid #c5d1de;border-radius:7px;padding:8px 11px;background:white;color:var(--ink)}input{width:125px}button{cursor:pointer}button.primary{background:var(--blue);color:white;border-color:var(--blue)}.toolbar{text-align:right;margin-bottom:12px}.barrow{display:grid;grid-template-columns:205px 1fr 90px;align-items:center;gap:12px;margin:13px 0}.track{height:16px;background:#eef2f7;border-radius:4px;overflow:hidden}.bar{height:100%;background:var(--blue);border-radius:4px}.bar.teal{background:var(--teal)}details{margin-top:18px}summary{cursor:pointer;font-weight:650}.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}.links{display:flex;gap:12px;flex-wrap:wrap}.foot{font-size:12px;color:var(--muted);margin-top:24px}.sha{font-size:11px;word-break:break-all}ul{padding-left:21px}li{margin:6px 0}#calc-error{color:#aa3a2b}.print-only{display:none}
+@media(max-width:760px){main{padding:16px 12px 40px}header,section{padding:22px}.grid,.two{grid-template-columns:1fr}h1{font-size:26px}.barrow{grid-template-columns:140px 1fr 73px;font-size:12px}th,td{padding:9px}}
+@media print{body{background:white;font-size:11px}main{max-width:none;padding:0}header{border-radius:0;padding:20px}h1{font-size:25px}section{break-inside:avoid;margin-top:14px;padding:18px}.toolbar,.controls,details{display:none}.grid{gap:10px}.card{padding:14px}.number{font-size:24px}a{color:inherit}.print-only{display:block}button{display:none}}
+</style>
+</head>
+<body><main>
+<div class="toolbar"><button onclick="window.print()">打印 / 保存为 PDF</button></div>
+<header><div class="eyebrow">TEXTSR · DEPLOYMENT REVIEW · 2026-11-12</div><h1>RepViT-M0.6 与 V3M<br>部署改造与耗时结论</h1><p>独立分享版 · 同设备实测 · FP16 权重 · native batch16 · 12M 模型阶段推算</p></header>
+<div class="grid">
+<div class="card"><small>V3M · GPU 允许低精度</small><strong class="number">3.04 ms</strong><span>每次 batch16 Invoke，正常运行</span></div>
+<div class="card"><small>RepViT · GPU 允许低精度</small><strong class="number">7.33 ms</strong><span>同精度请求，耗时为 V3M 的约 2.41 倍</span></div>
+<div class="card"><small>12M · 低精度纯模型推算</small><strong class="number">48.7 / 117.3 ms</strong><span>依次为 V3M / RepViT，不含外部图像处理</span></div>
+</div>
+<section><h2>1. 可以直接采用的结论</h2>
+<ul><li><strong>RepViT 已完成部署兼容修复。</strong>14 个 RepDW、81 个 BN 融合；18 处 GELU 改为 tanh 近似并使用稳定表达；7 处 SE 显式展开 gate，解决跨 batch 广播错误。</li>
+<li><strong>在相同 GPU 精度请求下，RepViT 耗时更高。</strong>允许低精度时，RepViT 为 V3M 的约 <strong>2.41 倍</strong>；禁止低精度时约 <strong>2.21 倍</strong>。参数量、MAC 倍率不能直接代替实际延时。</li>
+<li><strong>RepViT 有两档已通过本轮测试的配置。</strong>禁止低精度：13.60 ms，真实最大误差 0.002384；允许低精度：7.33 ms，误差 0.009936，接近本轮 0.01 门槛。</li>
+<li><strong>12M 整图尚未做端到端实测。</strong>下文整图数字由分块次数乘以实测 batch16 延时得到，须另外加上取块、色彩转换、拼接及前后处理成本。</li></ul>
+<div class="note"><strong>本版修正了精度判定口径：</strong>V3M 低精度结果正常、全部有限，3.04 ms 已纳入主对比。最大绝对差 0.016454 超过本轮开发参考线 0.01，但该参考线不是已确认的产品验收标准，不能据此认定现有部署不合格。数值误差也不等于画质下降百分比。</div>
+<p class="muted">页首分别标明精度请求；两款模型的公平比较应使用下表同一行。</p>
+</section>
+<section><h2>2. 同设备耗时实测</h2>
+<p>TB323FU / SM8850P / Adreno 840 / Android 16；生产 TFLite 2.10；同一组真实 16 裁块。V3M 为 GT 总加粗 1px、L1_R1_ori、500K；RepViT 为同损失 500K 修复版。</p>
+<div class="table-wrap"><table><thead><tr><th>配置（均为 FP16 权重）</th><th>V3M Invoke</th><th>RepViT Invoke</th><th>V3M 含复制</th><th>RepViT 含复制</th></tr></thead><tbody>
+<tr><td>CPU · 4 线程</td><td class="num">10.92 ms</td><td class="num">38.30 ms</td><td>未单列</td><td>未单列</td></tr>
+<tr><td>GPU · 禁止低精度</td><td class="num">6.16 ms</td><td class="num">13.60 ms</td><td class="num">14.00 ms</td><td class="num">18.90 ms</td></tr>
+<tr><td>GPU · 允许低精度</td><td class="num">3.04 ms</td><td class="num">7.33 ms</td><td class="num">6.16 ms</td><td class="num">11.49 ms</td></tr>
+</tbody></table></div>
+<div class="note"><strong>同一个 FP16 权重文件，可以采用两种 GPU 计算选项。</strong>禁止低精度要求后端优先保持较高计算精度；允许低精度则允许后端使用 FP16 等较低精度运算，实际由后端决定。两者公开输入输出都为 FP32。精度开关影响中间运算，权重存储格式不随之改变。</div>
+<p class="muted">5 次 warmup、30 次测量；单位为一次 native batch16。Invoke 是纯模型调用；“含复制”是 probe 测得的输入复制 + Invoke + 输出复制，不含其他图像处理。GPU 性能测试和 profile 分开执行；非锁频、温控长期评测。FP16 权重存储与 GPU 计算精度是两件事，精度选项为后端请求。</p>
+</section>
+<section><h2>3. 12M 整图耗时：分块推算</h2>
+<p><span class="tag">推算，不是整图实测</span> 默认 4000×3000，裁块 256×256，步长 224；边缘补最后起点，固定 batch16 尾批补齐。</p>
+<div class="controls"><label>预设<select id="preset"><option value="4000,3000">12M · 4000×3000</option><option value="4160,3120">Mojito · 4160×3120</option><option value="custom">自定义</option></select></label><label>宽度<input id="width" type="number" value="4000" min="256" max="20000"></label><label>高度<input id="height" type="number" value="3000" min="256" max="20000"></label><label>耗时口径<select id="scope"><option value="invoke">纯 Invoke</option><option value="copy">含模型输入/输出复制</option></select></label></div>
+<p id="calc-error" role="alert"></p><div id="geometry" class="note">18 列 × 14 行 = 252 块；batch16 调用 16 次，尾批补 4 槽。</div>
+<div id="bars"></div>
+<div class="table-wrap"><table><thead><tr><th>模型配置</th><th>纯 Invoke 推算</th><th>含复制推算</th><th>数值情况</th></tr></thead><tbody id="frame-rows">
+<tr><td>V3M · GPU允许低精度</td><td>48.7 ms</td><td>98.6 ms</td><td>正常运行；max_abs 0.016454</td></tr>
+<tr><td>RepViT · GPU允许低精度</td><td>117.3 ms</td><td>183.9 ms</td><td>正常运行；max_abs 0.009936</td></tr>
+<tr><td>V3M · GPU禁止低精度</td><td>98.6 ms</td><td>223.9 ms</td><td>正常运行；max_abs 0.009127</td></tr>
+<tr><td>RepViT · GPU禁止低精度</td><td>217.6 ms</td><td>302.4 ms</td><td>正常运行；max_abs 0.002384</td></tr>
+</tbody></table></div>
+<noscript><p class="note">当前阅读器未启用脚本，已直接显示默认12M完整表格。使用普通浏览器打开可切换尺寸与图表；正文无需脚本也能阅读。</p></noscript>
+<p class="print-only">整图数字均为模型阶段推算；不含预处理、取块、色彩转换、拼接与后处理。</p>
+<p class="muted">未计入：模型初始化、RGB↔Y4UV、取块、融合回贴、V3 预处理、后处理。未假定这些成本为零。固定 b16 不把尾批补槽省略；也没有把批量均摊值当作 batch1 延时。</p>
+<details><summary>默认12M和Mojito的几何及CPU参考</summary><div class="table-wrap"><table><thead><tr><th>图像</th><th>裁块</th><th>b16 次数</th><th>尾批补槽</th><th>V3M CPU纯推理</th><th>RepViT CPU纯推理</th></tr></thead><tbody><tr><td>4000×3000 · 12.00MP</td><td>18×14 = 252</td><td>16</td><td>4</td><td>174.7 ms</td><td>612.7 ms</td></tr><tr><td>4160×3120 · 12.98MP</td><td>19×14 = 266</td><td>17</td><td>6</td><td>185.6 ms</td><td>651.0 ms</td></tr></tbody></table></div><p>Mojito 低精度模式：V3M 纯 Invoke 51.8 ms、含复制104.8 ms；RepViT 纯 Invoke124.7 ms、含复制195.4 ms。</p></details>
+</section>
+<section><h2>4. RepViT 部署需要改哪些</h2>
+<div class="step"><div class="badge">1</div><div><h3>融合 RepConv 与 BN <span class="tag">等价融合</span></h3><p>使用 eval 统计，将 RepDW 的 3×3、1×1、identity 分支及内外 BN 合为单个 DW 卷积，其他 Conv/BN 一并融合。本模型共 14 个 RepDW、81 个 BN；不跨激活强行合并卷积。训练权重保留，导出推理副本。</p></div></div>
+<div class="step"><div class="badge">2</div><div><h3>精确 GELU 改为 tanh 近似 <span class="tag warn">模型近似</span></h3><p>原 18 处 exact GELU 转成 FlexErf，当前生产 SDK 无 Flex，无法加载。导出为 tanh 近似后消除 Erf/Flex。该改动不是严格等价融合；真实 16 裁块的近似本身 max_abs 约 0.000687、mean_abs 约 0.0000147。</p><div class="formula">GELU(x) ≈ 0.5x · [1 + tanh(√(2/π) · (x + 0.044715x³))]</div></div></div>
+<div class="step"><div class="badge">3</div><div><h3>Tanh 使用稳定表达 <span class="tag">等价表达，验证舍入</span></h3><p>本 SDK 的 half shader 用 exp(2x) 计算 Tanh，x 超过约 5.545 后溢出，Inf/Inf 形成 NaN。已在独立扫描和原网中复现；采用下式消除该指数溢出路径，保留 tanh-GELU 的函数语义。</p><div class="formula">tanh(x) = 2 · sigmoid(2x) − 1</div></div></div>
+<div class="step"><div class="badge">4</div><div><h3>SE 显式展开 gate，避开跨 batch 广播 <span class="tag">等价重排与复制</span></h3><p>原 GPU 将所有图乘上 gate₀；首个 SE 的 MUL 误差 0.8217，与错误 gate₀ 公式却只差 4.2×10⁻⁶。保留 SE 网络与参数，把 gate 整数 nearest 复制到与 feature 相同形状再相乘，修复 7 处。</p><div class="formula">feature: [N,H,W,C] → [1,NH,W,C]<br>gate: [N,1,1,C] → [1,N,1,C] → nearest复制到 [1,NH,W,C]<br>同形逐元素相乘 → reshape回 [N,H,W,C]</div><p class="muted">此处只是 SE 内部张量重排；没有把 N 张图拆成 N 个卷积网络，也没有删 SE 或把 gate 固定为常量。</p></div></div>
+<div class="step"><div class="badge">5</div><div><h3>保持部署合同与既有运行路径</h3><p>固定 FP32 NHWC I/O <code>[16,128,128,6]</code>，对应 16 个 RGB256 裁块；FP16 只描述权重存储。87 个卷积保持 native batch16，沿用原 Y4UV/UV 顺序及生产 native-batch Winograd guard。没有增加最终 PACK/readback 补丁，没有修改生产接口、SDK源码或重新训练。</p><p>生产接入需采用本轮修复图，并与实际 SDK/模型版本绑定 GPU 编译缓存；精度开关须按已验证的配置设置。</p></div></div>
+</section>
+<section><h2>5. 修复后的验证结论</h2>
+<div class="two"><div><h3>已完成</h3><ul><li>FP32 对照 GPU 真实 max_abs 约 1.13×10⁻⁶。</li><li>FP16 两种 GPU 精度下，真实16裁块均有限，max_abs &lt; 0.01。</li><li>零、全一、固定随机输入，两种 GPU 精度均通过合成门槛 0.05。</li><li>高精度倒序和重复槽控制通过；相对正常 GPU 输出的直接差均为 0。</li><li>583/583 原节点进入单个 GPU delegate，无 CPU 回退；原生卷积 batch 审计通过。</li></ul></div><div><h3>结论边界</h3><ul><li>低精度真实误差 0.009936 接近门槛，结论限定于本轮冻结输入。</li><li>GELU 近似误差、FP16 存储误差、GPU 计算误差分别记录。</li><li>583 个 delegate 成员包含 180 个常量 DEQUANTIZE，不等于 583 个 GPU kernel。</li><li>数值测试没有代替视觉效果验收，也没有做 12M 全链路墙钟实测。</li><li>未覆盖旧模型和原报告；修复版单独交付。</li></ul></div></div>
+<div class="table-wrap"><table><thead><tr><th>真实输入 · max_abs</th><th>对 tanh 近似模型</th><th>对原 exact-GELU 模型总差</th></tr></thead><tbody><tr><td>RepViT FP16 · GPU禁止低精度</td><td>0.00238359</td><td>0.00230181</td></tr><tr><td>RepViT FP16 · GPU允许低精度</td><td>0.00993645</td><td>0.00996959</td></tr></tbody></table></div>
+<h3 style="margin-top:22px">V3M 的精度情况如何理解</h3><p>相对 V3M 自身 FP32 源模型，禁止低精度时 max_abs 为0.00912690，允许低精度时为0.01645367；两者输出均正常、有限。这与 RepViT 修复前的 gate 跨图错误和 NaN 是不同性质的问题。</p><p>0.01 是本轮用于发现差异的开发参考线，尚未绑定产品视觉验收。V3M 低精度超过该线，报告保留数值差异，但不写成“部署失败”或“不合格”。本轮 probe 的精度选项已记录；实际应用最终采用哪一选项，以应用接入配置为准，本文没有新增生产源码开关核验。</p>
+<details><summary>最终图算子分布</summary><p>CONV_2D 65、DEPTHWISE_CONV_2D 22、MUL 146、ADD 70、LOGISTIC 25、SUB 18、RESHAPE 21、RESIZE_NEAREST_NEIGHBOR 7、MEAN 7、RESIZE_BILINEAR 5、PAD 5、MINIMUM 6、RELU 6、DEQUANTIZE 180。全部进入 GPU delegate，无 Flex / Erf / Tanh / custom / PACK。</p></details>
+</section>
+<section><h2>6. 版本与分享说明</h2><p>RepViT 修复版 FP16：<strong>4,622,992 字节（4.409 MiB）</strong>；R1_ori 最终 500K。本文已内嵌耗时、关键误差、根因与改造说明，不依赖模型、CSV、JSON或其他报告。</p>
+<p class="sha">模型 SHA256：bcfc5efd12b7e5bc3a2d4239b08349a8452d431044c937eb72236dc73031df50</p>
+<p><strong>直接发送这一个 HTML 文件即可。</strong>正文、样式、交互计算均内嵌，无外部链接、字体、图片或网络请求；无需附带其他文件。普通浏览器可离线打开，也可打印保存为PDF。若邮件/聊天预览禁用脚本，默认12M表格和全部核心正文仍可阅读。</p></section>
+<footer class="foot">数据日期：2026-11-12 · 实测环境与范围已标明 · 所有整图数字均为模型阶段估算</footer>
+</main>
+<script>
+const measured=[
+ {name:'V3M · GPU允许低精度',invoke:3.044836733333333,copy:6.1636545666666676,note:'正常运行；max_abs 0.016454',color:'teal'},
+ {name:'RepViT · GPU允许低精度',invoke:7.3342030666666655,copy:11.491279499999996,note:'正常运行；max_abs 0.009936',color:'teal'},
+ {name:'V3M · GPU禁止低精度',invoke:6.1594201,copy:13.995137166666666,note:'正常运行；max_abs 0.009127',color:''},
+ {name:'RepViT · GPU禁止低精度',invoke:13.6011474,copy:18.899361166666665,note:'正常运行；max_abs 0.002384',color:''}
+];
+function axisCount(length){const last=Math.max(0,Math.floor((length-256+1)/2)*2);return Math.ceil(last/224)+1}
+function frameEstimate(width,height){const columns=axisCount(width),rows=axisCount(height),tiles=columns*rows,batches=Math.ceil(tiles/16);return {columns,rows,tiles,batches,pad:batches*16-tiles}}
+function render(){const w=Number(document.getElementById('width').value),h=Number(document.getElementById('height').value),error=document.getElementById('calc-error');if(!Number.isInteger(w)||!Number.isInteger(h)||w<256||h<256||w>20000||h>20000){error.textContent='请输入256–20000之间的整数宽高。';return}error.textContent='';const e=frameEstimate(w,h);document.getElementById('geometry').textContent=`${w}×${h}（${(w*h/1e6).toFixed(2)}MP）：${e.columns}列 × ${e.rows}行 = ${e.tiles}块；batch16调用${e.batches}次，尾批补${e.pad}槽。`;
+ const tbody=document.getElementById('frame-rows');tbody.replaceChildren();for(const m of measured){const tr=document.createElement('tr');for(const text of [m.name,(m.invoke*e.batches).toFixed(1)+' ms',(m.copy*e.batches).toFixed(1)+' ms',m.note]){const td=document.createElement('td');td.textContent=text;tr.append(td)}tbody.append(tr)}
+ const scope=document.getElementById('scope').value,max=Math.max(...measured.map(m=>m[scope]*e.batches)),bars=document.getElementById('bars');bars.replaceChildren();for(const m of measured){const row=document.createElement('div');row.className='barrow';const label=document.createElement('span');label.textContent=m.name;const track=document.createElement('div');track.className='track';const bar=document.createElement('div');bar.className='bar '+m.color;bar.style.width=(m[scope]*e.batches/max*100)+'%';track.append(bar);const value=document.createElement('strong');value.textContent=(m[scope]*e.batches).toFixed(1)+' ms';row.append(label,track,value);bars.append(row)}}
+document.getElementById('preset').addEventListener('change',e=>{if(e.target.value!=='custom'){const [w,h]=e.target.value.split(',');document.getElementById('width').value=w;document.getElementById('height').value=h;render()}});
+for(const id of ['width','height'])document.getElementById(id).addEventListener('input',()=>{document.getElementById('preset').value='custom';render()});document.getElementById('scope').addEventListener('change',render);render();
+</script></body></html>

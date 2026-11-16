@@ -1,0 +1,68 @@
+{
+  "model": "RepViT-M0.6 native restoration",
+  "training": "L1_R1_ori iteration500000",
+  "format": "plaintext TFLite",
+  "weight_storage": "FP16",
+  "input": {
+    "dtype": "float32",
+    "layout": "NHWC",
+    "shape": [
+      16,
+      128,
+      128,
+      6
+    ]
+  },
+  "output": {
+    "dtype": "float32",
+    "layout": "NHWC",
+    "shape": [
+      16,
+      128,
+      128,
+      6
+    ]
+  },
+  "rgb_patch": [
+    256,
+    256
+  ],
+  "native_convolution_batch": 16,
+  "convolutions": 87,
+  "gpu_delegate_nodes": 583,
+  "gpu_partitions": 1,
+  "cpu_fallback_nodes": [],
+  "repdw_fused": 14,
+  "bn_fused": 81,
+  "gelu_tanh_approximation": 18,
+  "stable_tanh": 18,
+  "se_gate_materialization": 7,
+  "final_pack_added": false,
+  "test_device": "TB323FU SM8850P Adreno840 Android16",
+  "runtime": "production TFLite2.10 static SDK; existing native-batch Winograd guard enabled",
+  "gpu_precision_loss_allowed_options": {
+    "disabled": {
+      "invoke_ms": 13.6011474,
+      "real_max_abs": 0.002383589744567871
+    },
+    "enabled": {
+      "invoke_ms": 7.3342030666666655,
+      "real_max_abs": 0.00993645191192627
+    }
+  },
+  "files": [
+    {
+      "path": "RepViT_M06_R1ori_500K_b16_fp16_deploy.tflite",
+      "sha256": "bcfc5efd12b7e5bc3a2d4239b08349a8452d431044c937eb72236dc73031df50",
+      "bytes": 4622992,
+      "role": "deployment"
+    },
+    {
+      "path": "reference/RepViT_M06_R1ori_500K_b16_fp32_reference.tflite",
+      "sha256": "beb0b3423e121e024651168e0d5da19999562835db637cfe27f596f507147e51",
+      "bytes": 9105468,
+      "role": "numeric_reference"
+    }
+  ],
+  "encrypted_container_included": false
+}

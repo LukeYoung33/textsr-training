@@ -42,3 +42,8 @@ realesrgan/models/v3_feature_distillation.py contains the tested8-tap objective 
 
 ## Integrity and acceptance
 MANIFEST.json lists SHA256 for included files. VALIDATION.json and an external archive SHA256 receipt describe checks of the delivered copy. Prior CPU evidence under evaluation/ predates packaging and must not be mistaken for target-site CUDA validation. No training or network operations run automatically on extraction.
+
+
+## RepViT-M0.6
+
+[RepViT-M0.6 training and deployment / ?????](docs/repvit_m06/README.md)
